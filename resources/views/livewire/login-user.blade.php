@@ -5,7 +5,7 @@
         <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
             Email
         </label>
-        <input id="email" type="email" wire:model="email" placeholder="Email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+        <input id="login" type="login" wire:model="email" placeholder="Email Or Username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
         @error('email') <span class="text-red-500 text-xs italic">{{ $message }}</span> @enderror
     </div>
 

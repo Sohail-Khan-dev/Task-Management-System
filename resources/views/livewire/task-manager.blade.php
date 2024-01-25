@@ -31,7 +31,7 @@
                             {{ $isEditMode ? 'Update' : 'Save'}}</button>
                     </div>
                 </form>
-                {{$status}}
+             
             </div>
         </div>
     @endif

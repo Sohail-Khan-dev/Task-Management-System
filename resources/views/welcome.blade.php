@@ -4,7 +4,6 @@
 @section('main-content')
 
 <div class="container mx-auto px-4 py-6">
-    <div class="text-center mb-6"> Hello World This is remote published Git repo </div>
     @auth
         <div class="text-center mb-6">
             <h1 class="text-3xl font-bold">Task Management System</h1>

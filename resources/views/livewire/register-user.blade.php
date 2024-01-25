@@ -69,5 +69,5 @@
     </div>
 </form>
 <!-- this is the end of registration form-->
- {{ $role. " , ".$email ." , ". $username. " , ",$password }}
+ 
 </div>

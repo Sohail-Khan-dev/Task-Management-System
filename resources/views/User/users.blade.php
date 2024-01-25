@@ -1,4 +1,4 @@
-@extends('layouts.Mainlayout')
+@extends('Layouts.Mainlayout')
 @section('title','All Users')
 @section('main-content')
 <div class="container mx-auto p-6 bg-gray-200 pb-72">

@@ -1,4 +1,4 @@
-@extends('layouts.Mainlayout')  
+@extends('Layouts.Mainlayout')  
 <script>
   Livewire.on('userRegistered', function() {
     print('successfully Registed ');

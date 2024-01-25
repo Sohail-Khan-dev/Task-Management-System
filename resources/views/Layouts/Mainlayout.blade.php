@@ -11,7 +11,7 @@
     </head>
     <body class="flex flex-col min-h-screen">
         <header>
-            @include('layouts.navbar')
+            @include('Layouts.navbar')
         </header>
         <!-- Showing This on each Page. -->
         <!-- @section('projectName')  
@@ -21,7 +21,7 @@
         @yield('main-content')
         </main>
     <footer>
-        @include('layouts.footer')
+        @include('Layouts.footer')
     </footer>
     <script>
         Livewire.on('loggedOut', function() {

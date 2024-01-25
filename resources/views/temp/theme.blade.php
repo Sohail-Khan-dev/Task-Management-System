@@ -1,4 +1,4 @@
-@extends('layouts.Mainlayout')
+@extends('Layouts.Mainlayout')
 
 @section('title','Color Theme')
 

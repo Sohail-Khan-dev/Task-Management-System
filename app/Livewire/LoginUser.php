@@ -53,7 +53,7 @@ class LoginUser extends Component
     
     public function showLoginform()
     {
-       return view('user.login');
+       return view('User.login');
     }
 
     public function logout()

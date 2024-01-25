@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
         // dd('/ is called');
         
         return view('welcome');
-    })->name('home');
+    })->name('homes');
 
     Route::get('/register/{user?}', function (User $user = null) {
         //  dd($user->name. " Anme ".$user->email);

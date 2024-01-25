@@ -48,9 +48,9 @@
                 </button>
             </div>
             @endif
-        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative" style="height: 405px;">
+        <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative h-[450px] ">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
-                <thead>
+                <thead class="z-50 ">
                     <tr class="text-left">
                         <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">Title</th>
                         <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">Description</th>
@@ -96,11 +96,11 @@
     </div>
     @if($showDataInModal)
     <div class="fixed inset-0 bg-gray-500 bg-opacity-70 overflow-y-auto h-full w-full z-50" id="my-modal">
-        <div class="relative top-40 mx-auto p-5 m-5 border w-2/3  shadow-lg rounded-md bg-white">
+        <div class="relative top-20 mx-auto my-auto p-5 border w-2/3  shadow-lg rounded-md bg-white">
             <a wire:click="hideTask" class="text-gray-700 text-3xl absolute right-2 top-3 -mt-5 hover:cursor-pointer ">&times;</a>
 
             <!-- Task Details Div -->
-            <div class="p-4">
+            <div >
                 <h2 class="text-2xl font-bold border-b-2 border-blue-500 font-sans text-gray-800 mb-3">{{ $showtask->title }}</h2>
                 <p class="text-gray-600 text-sm mb-4">{{ $showtask->description }}</p>
                 <div class="inline-flex items-center px-2 py-1 rounded-full">

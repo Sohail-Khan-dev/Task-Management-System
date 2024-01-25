@@ -1,5 +1,6 @@
 @extends('Layouts.Mainlayout')  
-@section('title','Home') 
+@section('title','Home')
+
 @section('main-content')
 
 <div class="container mx-auto px-4 py-6">

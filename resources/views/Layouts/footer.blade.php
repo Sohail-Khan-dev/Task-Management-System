@@ -1,7 +1,7 @@
 <!-- Footer -->
 <div class="bg-blue-500 text-white">
     <div class="container mx-auto px-6 pt-6 pb-2">
-        <div class="flex flex-wrap justify-between">
+        <div class="flex justify-between">
             <!-- Footer Column 1 -->
             <div class="w-full md:w-1/4 text-sm mb-6 md:mb-0">
                 <h5 class="uppercase mb-4 font-bold">Company</h5>

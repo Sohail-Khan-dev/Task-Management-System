@@ -1,4 +1,7 @@
 <?php
+
+use App\Http\Controllers\TripAdvisoerController;
+use App\Http\Controllers\TripAdvisorController;
 use App\Livewire\LoginUser;
 use App\Livewire\RegisterUser;
 use App\Models\User;
@@ -39,6 +42,8 @@ use Illuminate\Support\Facades\Route;
             return view('Task.index');
         });
     });
+
+    Route::get('/trip',[TripAdvisoerController::class,'getReviews']);
     
 
     // Route::post('/addtask', [TaskManager::class,'store'])->name('task.store');

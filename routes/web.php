@@ -46,4 +46,6 @@ use Illuminate\Support\Facades\Route;
     Route::get('/trip',[TripAdvisoerController::class,'getReviews']);
     
 
-    // Route::post('/addtask', [TaskManager::class,'store'])->name('task.store');
+    Route::get('/blogs', function(){
+        return view('Blog.blogs');
+    });

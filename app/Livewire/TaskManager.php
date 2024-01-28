@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Task;
+use App\Models\User;
 use Livewire\Attributes\Rule;
 
 class TaskManager extends Component
@@ -11,9 +12,9 @@ class TaskManager extends Component
     // Property rules are not suitable for the livewire . you can crate a protected Property for Rule and Messages
     // #[Rule('required', 'string', 'max:50')]
     public $title ,  $status = 'todo';
-
     // #[Rule('required','min:10')]
     public $description;
+    public $user_id = 0; 
 
     public $isModalOpen = false;
     public $isEditMode, $showDataInModal = false;
@@ -21,10 +22,16 @@ class TaskManager extends Component
     // I try to use above variable but there was in issue in using this. So i create new Variable and it worked
     public $showtask;
 
+    // All Users will get from User table and storein below Variable 
+    public $users;
+    // This user will be used to Show only Tasks related to that User 
+    public $user = null;
+
     protected $rules = [
         'title' => 'required|string|max:50',
         'description' => 'required|min:10',
         'status' => 'required',
+        'user_id' => 'required',
     ];
     protected $messages = [
         'title.required' => 'Title is required',
@@ -33,6 +40,10 @@ class TaskManager extends Component
         'description.min' => 'Description must be at least 10 characters',
         'status.required' => 'Status is required',
     ];
+
+    public function mount(){
+        $this->users = User::all() ?? collect();
+    }
 
     public function createTask()
     {
@@ -44,11 +55,11 @@ class TaskManager extends Component
         $this->closeModal();
     }
     public function closeModal(){
-        $this->reset();
+        $this->resetExcept(['users']);
         $this->isModalOpen = false;
     }
     public function openModal(){
-        $this->reset();
+        $this->resetExcept(['users']);
         $this->resetErrorBag();
         $this->isModalOpen = true;
     }
@@ -60,9 +71,11 @@ class TaskManager extends Component
            'title'=> ['required', 'max:30'] ,
            'description'=> ['required', 'min:10'] ,
            'status'=> ['required'] ,
+           'user_id'=> ['required']
         ]);
+       
     }
-
+  
     public function delete(Task $task){
         $task->delete();
     }   
@@ -74,6 +87,7 @@ class TaskManager extends Component
         $this->isModalOpen = true;
         $this->isEditMode = true;
         $this->taskUpdate = $task;
+        $this->user_id = $task->user_id;
     }
     public function update(){
         // dd('Task Updated : ' . $this->task);
@@ -90,11 +104,22 @@ class TaskManager extends Component
     public function hideTask(){
         $this->showDataInModal = false;
     }
-
+    public function searchUserTask($user){
+        if($this->user != null)
+            $this->user = null;
+        else 
+            $this->user = $user;
+    }
     public function render()
     {
+        if($this->user) {
+            // dd($this->user);
+            $tasks = Task::where('user_id', $this->user)->get();
+        } else {
+            $tasks = Task::all();
+        }
         return view('livewire.task-manager',[
-            'tasks' => Task::all()
+            'tasks' => $tasks
         ]);
     }
 

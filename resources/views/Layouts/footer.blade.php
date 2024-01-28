@@ -36,22 +36,22 @@
 
             <!-- Footer Social Links (Optional) -->
             <div class="w-full md:w-1/4 text-sm mb-6 md:mb-0">
-    <h5 class="uppercase mb-4 font-bold">Follow Us</h5>
-    <ul class="list-none [&.*]]:text-white">
-        <li>
-            <a href="https://www.facebook.com/Sohailshinwar" target="_blank"  class="hover:text-gray-800">Facebook</a>
-        </li>
-        <li>
-            <a href="https://twitter.com/SohailKhan8338" target="_blank"  class="hover:text-gray-800">Twitter</a>
-        </li>
-        <li>
-            <a href="https://www.linkedin.com/in/sohailshinwari/" target="_blank"  class="hover:text-gray-800">LinkedIn</a>
-        </li>
-    </ul>
-</div>
-
+                <h5 class="uppercase mb-4 font-bold">Follow Us</h5>
+                <ul class="list-none">
+                    <li class="mb-2">
+                        <a href="https://www.facebook.com/Sohailshinwar" target="_blank"  class="hover:text-gray-800">Facebook</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://twitter.com/SohailKhan8338" target="_blank"  class="hover:text-gray-800">Twitter</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://www.linkedin.com/in/sohailshinwari/" target="_blank"  class="hover:text-gray-800">LinkedIn</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://github.com/Sohail-Khan-dev/Task-Management-System" target="_blank"  class="hover:text-gray-800">GitHub</a>
+                </ul>
+            </div>
         </div>
-
         <div class="border-t border-gray-700 mt-8 pt-6 text-center">
             <p class="text-sm">
                 &copy; 2024 Task Management System. All rights reserved.

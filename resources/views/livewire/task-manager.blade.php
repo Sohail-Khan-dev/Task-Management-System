@@ -1,7 +1,7 @@
 <div>
     @if($isModalOpen)
         <div class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50" id="my-modal">
-             
+       
             <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
                 <a wire:click="closeModal" class="text-gray-700 text-3xl absolute right-2 top-3 -mt-5 hover:cursor-pointer ">&times;</a>
         
@@ -26,12 +26,24 @@
                         </select>
                         @error('status')<p class="text-red-500 text-xs mt-1">{{ $message }} </p>@enderror
                     </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Assigned User</label>
+                        <select wire:model="user_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            <option value="">Select User</option>
+                            <!-- @if($users != null) -->
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            <!-- @endif -->
+                        </select>
+                        @error('user_id') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
+                    </div>
                     <div class="flex justify-end">
                         <button type="submit" class="px-4 py-2 bg-blue-500 text-white text-base font-medium rounded-md w-20 shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
                             {{ $isEditMode ? 'Update' : 'Save'}}</button>
                     </div>
                 </form>
-             
+              
             </div>
         </div>
     @endif
@@ -50,11 +62,12 @@
             @endif
         <div class="overflow-x-auto bg-white rounded-lg shadow overflow-y-auto relative h-[450px] ">
             <table class="border-collapse table-auto w-full whitespace-no-wrap bg-white table-striped relative">
-                <thead class="z-50 ">
-                    <tr class="text-left">
-                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">Title</th>
-                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">Description</th>
-                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">Status</th>
+                <thead>
+                    <tr class="text-left z-10">
+                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100 z-10">Title</th>
+                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100 z-10">Description</th>
+                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100 z-10">Status</th>
+                        <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100 z-10">Assigned User</th>
                         @if($userRole == 'editor' || $userRole == 'admin') 
                             <th class="py-2 px-3 sticky top-0 border-b border-gray-200 bg-gray-100">Actions</th>
                         @endif
@@ -77,6 +90,25 @@
                                     @elseif(strcmp($task->status,'complete') == 0)
                                         <span class="bg-green-200 font-bold text-sm text-green-800 px-3 py-1 rounded-full opacity-80">Complete</span>
                                     @endif
+                                 </td>
+                                 <td class="py-2 px-3 border-b border-gray-200 text-center" x-data="{showTooltip: false}">
+                                @if($task->user)
+                                    @php
+                                        $names = explode(' ', $task->user->name);
+                                        $initials = '';
+                                        foreach ($names as $name) {
+                                            $initials .= strtoupper($name[0]);
+                                        }
+                                    @endphp
+                                    <button  type="button" wire:click="searchUserTask({{$task->user}})" x-on:mouseover="showTooltip = true" x-on:mouseleave="showTooltip = false">
+                                        {{ $initials }}
+                                        <span x-show="showTooltip" class="absolute bg-gray-700 text-white text-xs rounded py-1 px-2 shadow-lg" x-cloak>
+                                            {{ $task->user->name }}
+                                        </span>
+                                    </button>
+                                @else
+                                        No User
+                                @endif
                                  </td>
                                  @if($userRole == 'editor' || $userRole == 'admin')
                                     <td class="py-2 px-3 border-b border-gray-200">
@@ -116,5 +148,5 @@
         </div>
     </div>
 @endif
-
+   
 </div>

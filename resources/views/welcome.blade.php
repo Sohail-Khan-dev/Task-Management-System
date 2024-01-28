@@ -11,7 +11,7 @@
         </div>
 
         <div class="bg-white shadow-lg rounded-lg p-6">
-            <h2 class="text-2xl font-semibold mb-4">Your Role: {{ ucfirst(auth()->user()->role) }}</h2>
+            <h2 class="text-2xl font-semibold mb-4 indent-8">Your Role: {{ ucfirst(auth()->user()->role) }}</h2>
 
             @php
                 $role = auth()->user()->role;
@@ -52,6 +52,17 @@
             <li><strong>Editor:</strong> Can edit tasks and user details but cannot delete any users or tasks.</li>
             <li><strong>User:</strong> Can view tasks and user information.</li>
             <li><strong>Guest:</strong> Does not have permission to view tasks or user information on the dashboard.</li>
+        </ul>
+    </div>
+    <div class="bg-white shadow-lg rounded-lg p-6">
+        <h1 class="text-gray-800 font-bold mb-4 text-xl indent-8 "> Some Basics instructions</h1>
+        <h2 class="text-gray-700 font-semibold mb-4">To Access the task you must be login. To view all task simply click on tasks link above </h2>
+        <ul class="list-disc list-inside leading-10 indent-4  ">
+            <li><strong>Title: </strong> If title length is greater then 10 letters then it will be now Shown completed but dots.. </li>
+            <li><strong>Description: </strong>Same with Description but it is handled through Tailwind Css 'truncated' class. Also a link is generated when it is clicked then it show the complete task in Modal </li>
+            <li><strong>Status: </strong> Each status have it's own background and color</li>
+            <li><strong>Assigned User: </strong>Each task have a User. When we click on user it show all task of that user and when we click it again it shows all the tasks again.</li>
+            <li><strong>Actions: </strong> Action have two button Edit which is used to modifi that record and Delete to remove the record from Database</li>
         </ul>
     </div>
 </div>

@@ -7,10 +7,10 @@
                 <h5 class="uppercase mb-4 font-bold">Company</h5>
                 <ul class="list-none">
                     <li class="mb-2">
-                        <a href="#about" class="hover:text-blue-200">About Us</a>
+                        <a href="/aboutus" class="hover:text-blue-200">About Us</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#contact" class="hover:text-blue-200">Contact Us</a>
+                        <a href="aboutus" class="hover:text-blue-200">Contact Us</a>
                     </li>
                     <li class="mb-2">
                         <a href="#team" class="hover:text-blue-200">Team</a>
@@ -24,7 +24,7 @@
             <div class="w-full md:w-1/4 text-sm mb-6 md:mb-0">
                 <h5 class="uppercase mb-4 font-bold">Resources</h5>
                 <ul class="list-none">
-                    <li class="mb-2"> <a href="#blog" class="hover:text-blue-200">Blog</a>             </li>
+                    <li class="mb-2"> <a href="/blogs" class="hover:text-blue-200">Blog</a>             </li>
                     <li class="mb-2"><a href="#help" class="hover:text-blue-200">Help Center</a>       </li>
                     <li class="mb-2"><a href="#privacy" class="hover:text-blue-200">Privacy Policy</a> </li>
                     <li class="mb-2"><a href="#terms" class="hover:text-blue-200">Terms of Service</a> </li>

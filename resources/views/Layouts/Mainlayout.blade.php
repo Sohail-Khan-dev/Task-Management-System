@@ -17,8 +17,8 @@
         <!-- @section('projectName')  
             <h1 class="text-xl text-center font-bold ml-32 bg-gray-200 py-4">Task Management System</h1>
         @show     -->
-        <main class="flex-grow max-h-screen bg-gray-200 @stack('main-class')">
-        @yield('main-content')
+        <main class="flex-grow min-h-screen bg-gray-200 @stack('main-class')">
+            @yield('main-content')
         </main>
     <footer>
         @include('Layouts.footer')

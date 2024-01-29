@@ -1,5 +1,5 @@
 @extends('Layouts.Mainlayout')
-@section('title','All Users')
+@section('title','About Us')
 @section('main-content')
 <!-- @push('main-class')
 flex max-h-auto w-auto bg-gray-200

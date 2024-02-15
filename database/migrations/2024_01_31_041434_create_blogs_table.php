@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('category')->nullable();
             $table->string('tags')->nullable();
             $table->string('published_at');
+            $table->timestamp('expires_at')->nullable();
             $table->timestamps();
         });
     }

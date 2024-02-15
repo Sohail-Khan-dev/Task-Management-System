@@ -8,6 +8,7 @@
             <a href="/" wire:navigate class="text-sm px-4 py-2 leading-none hover:text-blue-200">Home</a>
             <a href="/tasks" wire:navigate class="text-sm px-4 py-2 leading-none hover:text-blue-200">Tasks</a>
             <a href="/users" wire:navigate class="text-sm px-4 py-2 leading-none hover:text-blue-200">Users</a>
+            <a href="/blog" wire:navigate class="text-sm px-4 py-2 leading-none hover:text-blue-200">Blogs</a>
             <a href="/aboutus" wire:navigate class="text-sm px-4 py-2 leading-none hover:text-blue-200">About</a>
         </div>
 

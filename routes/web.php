@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TripAdvisoerController;
-use App\Http\Controllers\TripAdvisorController;
 use App\Livewire\LoginUser;
 use App\Livewire\RegisterUser;
 use App\Models\User;
@@ -22,7 +21,6 @@ use Illuminate\Support\Facades\Route;
     })->name('homes');
 
     Route::get('/register/{user?}', function (User $user = null) {
-        //  dd($user->name. " Anme ".$user->email);
         return view('User.register',['user' => $user]);
     })->name('register');
 
@@ -51,7 +49,7 @@ use Illuminate\Support\Facades\Route;
     //     return view('Blog.blogs');
     // });
 
-    Route::get('/blog',[AdminController::class,'dashboard'])->name('blog');
-    Route::get('/blog/create',[AdminController::class,'create'])->name('blog.create');
-    Route::post('/blog/store',[AdminController::class,'store'])->name('blog.store');
-    Route::get('/blog/{slug}',[AdminController::class,'show'])->name('blog.show');
+    Route::get('/blog',[BlogController::class,'dashboard'])->name('blog');
+    Route::get('/blog/create',[BlogController::class,'create'])->name('blog.create');
+    Route::post('/blog/store',[BlogController::class,'store'])->name('blog.store');
+    Route::get('/blog/{slug}',[BlogController::class,'show'])->name('blog.show');

@@ -47,8 +47,11 @@ use Illuminate\Support\Facades\Route;
     Route::get('/trip',[TripAdvisoerController::class,'getReviews']);
     
 
-    Route::get('/blogs', function(){
-        return view('Blog.blogs');
-    });
+    // Route::get('/blogs', function(){
+    //     return view('Blog.blogs');
+    // });
 
-    Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('dashboard');  
+    Route::get('/blog',[AdminController::class,'dashboard'])->name('blog');
+    Route::get('/blog/create',[AdminController::class,'create'])->name('blog.create');
+    Route::post('/blog/store',[AdminController::class,'store'])->name('blog.store');
+    Route::get('/blog/{slug}',[AdminController::class,'show'])->name('blog.show');

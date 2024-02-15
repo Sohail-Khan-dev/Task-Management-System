@@ -100,12 +100,10 @@
                                             $initials .= strtoupper($name[0]);
                                         }
                                     @endphp
-                                    <button  type="button" wire:click="searchUserTask({{$task->user}})" x-on:mouseover="showTooltip = true" x-on:mouseleave="showTooltip = false">
+                                    <button type="button" wire:click="searchUserTask({{$task->user}})" title="{{ $task->user->name }}">
                                         {{ $initials }}
-                                        <span x-show="showTooltip" class="absolute bg-gray-700 text-white text-xs rounded py-1 px-2 shadow-lg" x-cloak>
-                                            {{ $task->user->name }}
-                                        </span>
                                     </button>
+
                                 @else
                                         No User
                                 @endif

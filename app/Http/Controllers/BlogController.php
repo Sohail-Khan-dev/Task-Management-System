@@ -100,12 +100,25 @@ class BlogController extends Controller
             if ($request->status == 'published') {
                 $publish_at = Date::now();
             }
-            //  dd('image is : ' .$path . $filename);
+            if($request->has('image')){
+                $file = $request->file('image');
+                $path = $request->image;
+                if($file != null)
+                {
+                    // $extension = $file->getClientOriginalExtension();
+                    // $filename = time().'.png';
+                    // $file->move($path, $filename);
+                }
+            }else{
+                $filename = 'default.png';
+                $path = 'blogs/'.$filename;
+            }
+            //   return('image is : ' .$path );
             Blog::create([
                 'title' => $request->title,
                 'slug' => $request->slug,
                 'description' => $request->description,
-                'image' => 'this is from API no Handled till yet',
+                'image' => $path,
                 'status' => $request->status,
                 'author' => $author,
                 'published_at' => $publish_at,
